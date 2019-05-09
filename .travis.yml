@@ -12,20 +12,22 @@ before_install:
     - sudo apt install p7zip-full
     - sudo apt install imagemagick
     - sudo apt-get install gsfonts
-    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/worldcupplayerinfo.tsv"
-    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/web_log.tsv"
-    - sudo mv web_log.tsv 'chap 0x04/'
+	- sudo apt install imagemagick-6.q16
+	- sudo apt install graphicsmagick-imagemagick-compat
+	- sudo apt install imagemagick-6.q16hdri
+    - wget "https://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z"
+    - 7z x web_log.tsv.7z
 
 script:
   - bash test.sh
   
   - bash 'chap 0x04/1.sh' -h
-  - bash 'chap 0x04/1.sh' -q  [chap 0x04/images] 50
-  - bash 'chap 0x04/1.sh' -c  [chap 0x04/images] 50%x50%
-  - bash 'chap 0x04/1.sh' -w  [chap 0x04/images] 0
-  - bash 'chap 0x04/1.sh' -r  [chap 0x04/images]  pre  --prefix
-  - bash 'chap 0x04/1.sh' -r  [chap 0x04/images]  su   --sufix
-  - bash 'chap 0x04/1.sh' -e  [chap 0x04/images] 
+  - bash 'chap 0x04/1.sh' -q  chap\ 0x04/images 50
+  - bash 'chap 0x04/1.sh' -c  chap\ 0x04/images 50%x50%
+  - bash 'chap 0x04/1.sh' -w  chap\ 0x04/images 0
+  - bash 'chap 0x04/1.sh' -r  chap\ 0x04/images  pre  --prefix
+  - bash 'chap 0x04/1.sh' -r  chap\ 0x04/images  su   --sufix
+  - bash 'chap 0x04/1.sh' -e  chap\ 0x04/images 
   
   - bash 'chap 0x04/3.sh' -h
   - bash 'chap 0x04/3.sh' -a 
