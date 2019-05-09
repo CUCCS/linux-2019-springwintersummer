@@ -1,0 +1,10 @@
+23 403:163.135.192.101
+21 403:user36.znet.com
+21 403:tty18-23.swipnet.se
+18 403:bass.hooked.net
+12 403:rserio.charm.net
+12 403:dialup539.washington.mci.net
+11 403:quasar.ed.niigata-u.ac.jp
+9 403:foxlake.library.nwu.edu
+6 403:erigate.ericsson.se
+5 403:pparviee.rautaruukki.fi
