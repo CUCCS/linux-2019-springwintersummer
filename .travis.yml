@@ -12,13 +12,8 @@ before_install:
 
 script:
   - bash test.sh
-  - bash 'chap 0x04\3.sh' -h
-  - bash 'chap 0x04\3.sh' -a
-  - bash 'chap 0x04\3.sh' -b
-  - bash 'chap 0x04\3.sh' -c
-  - bash 'chap 0x04\3.sh' -d
-  - bash 'chap 0x04\3.sh' -e
-  - bash 'chap 0x04\3.sh' -f /
+  
+  - bash chap 0x04\3.sh -h
 
 
 after_script:
