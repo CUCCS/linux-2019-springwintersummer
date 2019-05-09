@@ -13,7 +13,7 @@ before_install:
 script:
   - bash test.sh
   
-  - bash chap 0x04\3.sh -h
+  - bash 'chap 0x04'\3.sh -h
 
 
 after_script:
