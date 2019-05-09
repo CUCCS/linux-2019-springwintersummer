@@ -12,9 +12,9 @@ before_install:
     - sudo apt install p7zip-full
     - sudo apt install imagemagick
     - sudo apt-get install gsfonts
-	- sudo apt install imagemagick-6.q16
-	- sudo apt install graphicsmagick-imagemagick-compat
-	- sudo apt install imagemagick-6.q16hdri
+    - sudo apt install imagemagick-6.q16
+    - sudo apt install graphicsmagick-imagemagick-compat
+    - sudo apt install imagemagick-6.q16hdri
     - wget "https://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z"
     - 7z x web_log.tsv.7z
 
