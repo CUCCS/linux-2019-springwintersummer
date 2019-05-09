@@ -9,9 +9,34 @@ before_install:
     - tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
+    
+    - sudo apt install p7zip-full
+    - sudo apt install imagemagick
+    - sudo apt-get install gsfonts
+    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/worldcupplayerinfo.tsv"
+    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/web_log.tsv"
 
 script:
   - bash test.sh
+  - bash 'chap4/1.sh' -h
+  - bash 'chap4/1.sh' -q  chap4/images 50
+  - bash 'chap4/1.sh' -c  chap4/images 50%x50%
+  - bash 'chap4/1.sh' -w  chap4/images 0
+  - bash 'chap4/1.sh' -r  chap4/images  pre  --prefix
+  - bash 'chap4/1.sh' -r  chap4/images  su   --sufix
+  - bash 'chap4/1.sh' -e  chap4/images 
+  - bash 'chap4/3.sh' -h
+  - bash 'chap4/3.sh' -a 
+  - bash 'chap4/3.sh' -b
+  - bash 'chap4/3.sh' -c
+  - bash 'chap4/3.sh' -d
+  - bash 'chap4/3.sh' -e
+  - bash 'chap4/3.sh' -f  /
+  - bash 'chap4/2.sh' -h
+  - bash 'chap4/2.sh' -r
+  - bash 'chap4/2.sh' -op
+  - bash 'chap4/2.sh' -n
+  - bash 'chap4/2.sh' -a
 
 after_script:
   - /usr/bin/shellcheck test.sh
