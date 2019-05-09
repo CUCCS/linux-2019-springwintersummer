@@ -19,14 +19,14 @@ function add_name()
 		for i in ${files}
 		do
 			
-			if [ $pre_su == "--sufix" ]
+			if [ ["$pre_su" == "--sufix"] ]
 			then
 				old_name=$i
                                 filename=${i%.*}
                                 extension='.'${i##*.}
 				new_name=${filename}${add_fix}${extension}
 				cp $old_name $new_name
-			elif [ ${pre_su} == "--prefix" ]
+			elif [ ["${pre_su}" == "--prefix"] ]
 			then
 
                                 old_name=$i
