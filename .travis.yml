@@ -9,8 +9,7 @@ before_install:
     - tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
-    
-    - sudo apt install p7zip-full
+
     - sudo apt install imagemagick
     - sudo apt-get install gsfonts
     - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/worldcupplayerinfo.tsv"
