@@ -21,19 +21,21 @@ function add_name()
 			
 			if [ ["$pre_su" == "--sufix"] ]
 			then
+				filepath=$(dirname -- "$i")
 				oldname=$(basename -- "$i")
                                 filename=${oldname%.*}
                                 extension='.'${oldname##*.}
-				new_name=${filename}${add_fix}${extension}
-				cp $old_name $new_name
+				new_name=${filepath}${filename}${add_fix}${extension}
+				cp $i $new_name
 			elif [ ["${pre_su}" == "--prefix"] ]
 			then
 
+                                filepath=$(dirname -- "$i")
                                 oldname=$(basename -- "$i")
                                 filename=${oldname%.*}
                                 extension='.'${oldname##*.}
-                                new_name=${add_fix}${filename}${extension}
-				cp $old_name $new_name
+                                new_name=${filepath}${add_fix}${filename}${extension}
+				cp $i $new_name
 
 			fi
 		done
@@ -50,10 +52,11 @@ function exchange()
 		files=$(find $path -regex '.*\.svg\|.*\.png')
                 for i in ${files}
 		do
+			filepath=$(dirname -- "$i")
 			oldname=$(basename -- "$i")
                         filename=${oldname%.*}
                         extension='.'${oldname##*.}
-                        new_name=${filename}${add_name}${extension}
+                        new_name=${filepath}${filename}${add_name}${extension}
                         convert ${old_name} ${new_name}
 		done
 	else
@@ -72,16 +75,15 @@ function embed_watermark()
 		then
 			echo "There no pictures"
 		else
-			echo "These picture will be quality compress:"
-                        echo "$(identify $files)"
-                        echo "After embed water:"
+		
                         for i in ${files}
                         do
+			       filepath=$(dirname -- "$i")
                                oldname=$(basename -- "$i")
                                filename=${oldname%.*}
                                extension='.'${oldname##*.}
                                add_name="war"
-                               new_name=${filename}${add_name}${extension}
+                               new_name=${filepath}${filename}${add_name}${extension}
                                convert ${old_name} -fill -pointsize -draw "text 10,20 ${water}" ${new_name} 
                         done
 	        fi
@@ -99,16 +101,14 @@ function resolution()
                then
                        echo "There no jEPG pictures"
                else
-                       echo "These picture will be quality compress:"
-                       echo "$(identify $files)"
-                       echo "After quality compress:"
                        for i in ${files}
                        do
+		               filepath=$(dirname -- "$i")
                                oldname=$(basename -- "$i")
                                filename=${oldname%.*}
                                extension='.'${oldname##*.}
                                add_name="res"
-                               new_name=${filename}${add_name}${extension}
+                               new_name=${filepath}${filename}${add_name}${extension}
 	                       convert -resize "${rates}" "${old_name}" "${new_name}"		       
                        done
                fi
@@ -129,16 +129,14 @@ function compress()
 		then
 			echo "There no jEPG pictures"
 		else
-			echo "These picture will be quality compress:"
-			echo "$(identify $files)"
-			echo "After quality compress:"
 			for i in ${files}
 			do
+			        filepath=$(dirname -- "$i")
 				oldname=$(basename -- "$i")
                                 filename=${oldname%.*}
                                 extension='.'${oldname##*.}
 				add_name="qua"
-				new_name=${filename}${add_name}${extension}
+				new_name=${filepath}${filename}${add_name}${extension}
 				convert ${old_name} -quality ${quality} ${new_name}
 			done
 		fi
