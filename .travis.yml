@@ -20,12 +20,12 @@ script:
   - bash test.sh
   
   - bash 'chap 0x04/1.sh' -h
-  - bash 'chap 0x04/1.sh' -q  {chap 0x04/images} 50
-  - bash 'chap 0x04/1.sh' -c  {chap 0x04/images} 50%x50%
-  - bash 'chap 0x04/1.sh' -w  "chap 0x04/images" 0
-  - bash 'chap 0x04/1.sh' -r  (chap 0x04/images)  pre  --prefix
+  - bash 'chap 0x04/1.sh' -q  [chap 0x04/images] 50
+  - bash 'chap 0x04/1.sh' -c  [chap 0x04/images] 50%x50%
+  - bash 'chap 0x04/1.sh' -w  [chap 0x04/images] 0
+  - bash 'chap 0x04/1.sh' -r  [chap 0x04/images]  pre  --prefix
   - bash 'chap 0x04/1.sh' -r  [chap 0x04/images]  su   --sufix
-  - bash 'chap 0x04/1.sh' -e  'chap 0x04/images' 
+  - bash 'chap 0x04/1.sh' -e  [chap 0x04/images] 
   
   - bash 'chap 0x04/3.sh' -h
   - bash 'chap 0x04/3.sh' -a 
