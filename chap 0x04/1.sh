@@ -21,17 +21,17 @@ function add_name()
 			
 			if [ ["$pre_su" == "--sufix"] ]
 			then
-				old_name=$i
-                                filename=${i%.*}
-                                extension='.'${i##*.}
+				oldname=$(basename -- "$i")
+                                filename=${oldname%.*}
+                                extension='.'${oldname##*.}
 				new_name=${filename}${add_fix}${extension}
 				cp $old_name $new_name
 			elif [ ["${pre_su}" == "--prefix"] ]
 			then
 
-                                old_name=$i
-                                filename=${i%.*}
-                                extension='.'${i##*.}
+                                oldname=$(basename -- "$i")
+                                filename=${oldname%.*}
+                                extension='.'${oldname##*.}
                                 new_name=${add_fix}${filename}${extension}
 				cp $old_name $new_name
 
@@ -50,10 +50,9 @@ function exchange()
 		files=$(find $path -regex '.*\.svg\|.*\.png')
                 for i in ${files}
 		do
-			old_name=$i
-			add_name='ex'
-			filename=${i%.*}
-                        extension='.'${i##*.}
+			oldname=$(basename -- "$i")
+                        filename=${oldname%.*}
+                        extension='.'${oldname##*.}
                         new_name=${filename}${add_name}${extension}
                         convert ${old_name} ${new_name}
 		done
@@ -78,9 +77,9 @@ function embed_watermark()
                         echo "After embed water:"
                         for i in ${files}
                         do
-                               old_name=$i
-                               filename=${i%.*}
-                               extension='.'${i##*.}
+                               oldname=$(basename -- "$i")
+                               filename=${oldname%.*}
+                               extension='.'${oldname##*.}
                                add_name="war"
                                new_name=${filename}${add_name}${extension}
                                convert ${old_name} -fill -pointsize -draw "text 10,20 ${water}" ${new_name} 
@@ -105,9 +104,9 @@ function resolution()
                        echo "After quality compress:"
                        for i in ${files}
                        do
-                               old_name=$i
-                               filename=${i%.*}
-                               extension='.'${i##*.}
+                               oldname=$(basename -- "$i")
+                               filename=${oldname%.*}
+                               extension='.'${oldname##*.}
                                add_name="res"
                                new_name=${filename}${add_name}${extension}
 	                       convert -resize "${rates}" "${old_name}" "${new_name}"		       
@@ -135,9 +134,9 @@ function compress()
 			echo "After quality compress:"
 			for i in ${files}
 			do
-				old_name=$i
-				filename=${i%.*}
-				extension='.'${i##*.}
+				oldname=$(basename -- "$i")
+                                filename=${oldname%.*}
+                                extension='.'${oldname##*.}
 				add_name="qua"
 				new_name=${filename}${add_name}${extension}
 				convert ${old_name} -quality ${quality} ${new_name}
